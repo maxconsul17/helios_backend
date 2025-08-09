@@ -96,5 +96,12 @@
             $this->assertEquals('2025-08-01 12:00:00', $data['time']);
         }
 
+        public function test_upload_fails_when_file_is_missing()
+        {
+            $response = $this->postJson('/api/upload-logs', []); // No file sent
+
+            $response->assertStatus(422); // Laravel returns 422 for validation errors
+            $response->assertJsonValidationErrors('file'); // Asserts 'file' field has validation error
+        }
 
     }

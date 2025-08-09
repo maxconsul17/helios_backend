@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Dtr\FacialLog;
 use Carbon\Carbon;
+use App\Http\Controllers\Dtr\ValidationException;
 
 class UploadLogsController extends Controller
 {
@@ -31,10 +32,19 @@ class UploadLogsController extends Controller
      */
     public function store(Request $request)
     {
+
         // 1. Validate uploaded file
-        $request->validate([
-            'file' => 'required|file|mimes:csv,txt|max:2048',
-        ]);
+            try{
+                $request->validate([
+                    'file' => 'required|file|mimes:csv,txt|max:2048',
+                ]);
+            } catch (ValidationException $e) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Validation failed.',
+                    'errors' => $e->errors(),
+                ], 422);
+            }
 
         // 2. Get and read the file
         $file = $request->file('file');
