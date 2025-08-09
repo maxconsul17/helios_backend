@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('person_id')->index();
             $table->dateTime('time');
             $table->string('site');
-            $table->integer('device_id');
+            $table->string('device_id');
             $table->timestamps();
         });
     }
