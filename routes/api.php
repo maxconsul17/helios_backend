@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Dtr\UploadLogsController;
+use App\Http\Controllers\Schedule\EmployeeScheduleController;
+use App\Http\Controllers\Schedule\ScheduleShiftController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +21,6 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/upload-logs', [UploadLogsController::class, 'store'])
-    ->name('upload.logs.store');
+Route::apiResource('/upload-logs', UploadLogsController::class);
+Route::apiResource('/employee-schedule', EmployeeScheduleController::class);
+Route::apiResource('/schedule-shift', ScheduleShiftController::class);

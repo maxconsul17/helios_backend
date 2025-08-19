@@ -40,7 +40,7 @@
             $response->assertStatus(200);
             $response->assertJson([
                 'status' => 'success',
-                'message' => 'CSV imported with some rows skipped.',
+                'message' => 'CSV import complete.',
             ]);
 
             $this->assertDatabaseCount('facial_logs', 2);
