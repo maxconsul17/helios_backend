@@ -5,9 +5,9 @@ namespace App\Models\Dtr;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FacialLog extends Model
+class PairedLog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['person_id', 'time', 'site', 'device_id', 'processed'];
+    protected $fillable = ['person_id', 'time_in', 'time_out', 'date'];
 }

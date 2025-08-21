@@ -2,18 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\Schedule\EmployeeSchedule;
+use App\Models\Schedule\ScheduleShiftDetails;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class EmployeeScheduleFactory extends Factory
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Schedule\ScheduleShiftDetails>
+ */
+class ScheduleShiftDetailsFactory extends Factory
 {
-    protected $model = EmployeeSchedule::class;
+     protected $model = ScheduleShiftDetails::class;
 
-    public function definition()
+    public function definition(): array
     {
         return [
-            'employee_id' => $this->faker->numberBetween(1, 100),
-            'day' => $this->faker->dayOfWeek, // e.g., Monday, Tuesday
+            'schedule_shift_id' => ScheduleShiftDetails::factory(), // Automatically create related shift
             'start' => $this->faker->time('H:i:s'),
             'end' => $this->faker->time('H:i:s'),
             'tardy_start' => $this->faker->time('H:i:s'),

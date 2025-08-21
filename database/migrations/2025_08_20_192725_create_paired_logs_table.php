@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('facial_logs', function (Blueprint $table) {
+        Schema::create('paired_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('person_id')->index();
-            $table->dateTime('time');
-            $table->string('site');
-            $table->string('device_id');
-            $table->boolean('processed')->default(false);
+            $table->unsignedBigInteger('person_id');
+            $table->timestamp('time_in')->nullable();
+            $table->timestamp('time_out')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('facial_logs');
+        Schema::dropIfExists('paired_logs');
     }
 };

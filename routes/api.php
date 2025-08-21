@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dtr\UploadLogsController;
 use App\Http\Controllers\Schedule\EmployeeScheduleController;
 use App\Http\Controllers\Schedule\ScheduleShiftController;
+use App\Http\Controllers\Schedule\ScheduleShiftDetailsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,4 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::apiResource('/upload-logs', UploadLogsController::class);
 Route::apiResource('/employee-schedule', EmployeeScheduleController::class);
 Route::apiResource('/schedule-shift', ScheduleShiftController::class);
+Route::apiResource('/schedule-shift-details', ScheduleShiftDetailsController::class);

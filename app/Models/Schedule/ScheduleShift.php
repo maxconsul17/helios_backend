@@ -12,6 +12,11 @@ class ScheduleShift extends Model
     protected $fillable = [
         'schedule_name'
     ];
+
+    public static function newFactory()
+    {
+        return \Database\Factories\ScheduleShiftFactory::new();
+    }
     
 
     public static function createOrUpdateByUniqueKey(array $data){

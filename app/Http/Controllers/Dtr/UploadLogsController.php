@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Dtr\FacialLog;
-use Carbon\Carbon;
-use App\Http\Controllers\Dtr\ValidationException;
 
 class UploadLogsController extends Controller
 {
